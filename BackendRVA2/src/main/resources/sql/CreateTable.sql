@@ -2,6 +2,10 @@ DROP TABLE IF EXISTS artikl CASCADE;
 DROP TABLE IF EXISTS dobavljac CASCADE;
 DROP TABLE IF EXISTS porudzbina CASCADE;
 DROP TABLE IF EXISTS stavka_porudzbine CASCADE;
+DROP SEQUENCE IF EXISTS artikl_seq CASCADE;
+DROP SEQUENCE IF EXISTS dobavljac_seq CASCADE;
+DROP SEQUENCE IF EXISTS porudzbina_seq CASCADE;
+DROP SEQUENCE IF EXISTS stavka_porudzbine_seq CASCADE;
 
 CREATE TABLE artikl(
 	id integer NOT NULL,
@@ -57,3 +61,12 @@ CREATE INDEX IDXFK_Stavka_Porudzbine_Porudzbina
 	ON stavka_porudzbine (porudzbina);
 CREATE INDEX IDXFK_Stavka_Porudzbine_Artikl
 	ON stavka_porudzbine (artikl);
+
+CREATE SEQUENCE artikl_seq
+INCREMENT 1;
+CREATE SEQUENCE dobavljac_seq
+INCREMENT 1;
+CREATE SEQUENCE porudzbina_seq
+INCREMENT 1;
+CREATE SEQUENCE stavka_porudzbine_seq
+INCREMENT 1;
