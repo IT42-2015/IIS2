@@ -6,6 +6,8 @@ INSERT INTO "dobavljac"("id", "naziv", "adresa", "kontakt")
 VALUES(nextval('dobavljac_seq'), 'Fruit D.O.O.', 'Justina Popovica 3, 11080 Zemun, Beograd', '+381 11 3143 171');
 INSERT INTO "dobavljac"("id", "naziv", "adresa", "kontakt")
 VALUES(nextval('dobavljac_seq'), 'CENTROPROIZVOD', 'DOBANOVACKI PUT B.B. 11271, SURCIN', '+381 11 3773 600');
+INSERT INTO "dobavljac"("id", "naziv", "adresa", "kontakt")
+VALUES(-100, 'Naziv test', 'Adresa test', 'Kontakt test');
 
 INSERT INTO "artikl"("id", "naziv", "proizvodjac")
 VALUES(nextval('artikl_seq'), 'Moja Kravica sveže mleko 2,8% MM 1l', 'AD Imlek');
@@ -13,6 +15,9 @@ INSERT INTO "artikl"("id", "naziv", "proizvodjac")
 VALUES(nextval('artikl_seq'), 'Moja Kravica dugotrajno mleko 3,2% MM 1l', 'AD Imlek');
 INSERT INTO "artikl"("id", "naziv", "proizvodjac")
 VALUES(nextval('artikl_seq'), 'Moja Kravica Beli sir 1kg', 'AD Imlek');
+INSERT INTO "artikl"("id", "naziv", "proizvodjac")
+VALUES(-100, 'Naziv test', 'Proizvodjac test');
+
 
 INSERT INTO "artikl"("id", "naziv", "proizvodjac")
 VALUES(nextval('artikl_seq'), 'Persil Regular Prašak 2kg', 'Henkel Srbija');
