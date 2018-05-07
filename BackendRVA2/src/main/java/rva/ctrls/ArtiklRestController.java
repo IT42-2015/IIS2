@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,25 +29,26 @@ public class ArtiklRestController {
 	private JdbcTemplate jdbcTemplate;
 	
 	@GetMapping("artikl")
-	@ApiOperation(value = "Vraća kolekciju svih artikala iz baze podataka")
+	@ApiOperation(value = "VraÄ‡a kolekciju svih artikala iz baze podataka")
 	public Collection<Artikl> getArtikli(){
 		return artiklRepository.findAll();
 	}
 	
 	@GetMapping("artiklId/{id}")
-	@ApiOperation(value = "Vraća artikl iz baze podataka čiji je id vrednost prosleđena kao path varijabla")
+	@ApiOperation(value = "VraÄ‡a artikl iz baze podataka Ä�iji je id vrednost prosleÄ‘ena kao path varijabla")
 	public Artikl getArtikl(@PathVariable("id") Integer id){
 		return artiklRepository.getOne(id);
 	}
 	
 	@GetMapping("artiklNaziv/{naziv}")
-	@ApiOperation(value = "Vraća artikl iz baze podataka koji u nazivu sadrži string prosleđen kao path varijabla")
+	@ApiOperation(value = "VraÄ‡a artikl iz baze podataka koji u nazivu sadrÅ¾i string prosleÄ‘en kao path varijabla")
 	public Collection<Artikl> getArtiklByNaziv(@PathVariable("naziv") String naziv){
 		return artiklRepository.findByNazivContainingIgnoreCase(naziv);
 	}
 	
+	@CrossOrigin
 	@DeleteMapping("artiklId/{id}")
-	@ApiOperation(value = "Briše artikl iz baze podataka čiji je id vrednost prosleđena kao path varijabla")
+	@ApiOperation(value = "BriÅ¡e artikl iz baze podataka Ä�iji je id vrednost prosleÄ‘ena kao path varijabla")
 	public ResponseEntity<Artikl> deleteArtikl(@PathVariable("id") Integer id){
 		if(artiklRepository.existsById(id)){
 			artiklRepository.deleteById(id);
@@ -58,6 +60,7 @@ public class ArtiklRestController {
 	}
 	
 	// insert
+	@CrossOrigin
 	@PostMapping("artikl")
 	@ApiOperation(value = "Upisuje artikl u bazu podataka")
 	public ResponseEntity<Artikl> insertArtikl(@RequestBody Artikl artikl){
@@ -68,8 +71,9 @@ public class ArtiklRestController {
 	}
 	
 	// update
+	@CrossOrigin
 	@PutMapping("artikl")
-	@ApiOperation(value = "Modifikuje postojeći artikl iz bazu podataka")
+	@ApiOperation(value = "Modifikuje postojeÄ‡i artikl iz bazu podataka")
 	public ResponseEntity<Artikl> updateArtikl(@RequestBody Artikl artikl){
 		if(artiklRepository.existsById(artikl.getId())){
 			artiklRepository.save(artikl);

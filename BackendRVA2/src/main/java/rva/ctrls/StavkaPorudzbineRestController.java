@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,6 +50,7 @@ public class StavkaPorudzbineRestController {
 		return stavkaPorudzbineRepository.findByCenaLessThanOrderById(cena);
 	}
 
+	@CrossOrigin
 	@DeleteMapping (value = "stavkaPorudzbineId/{id}")
 	public ResponseEntity<StavkaPorudzbine> deleteStavkaPorudzbine(@PathVariable("id") Integer id){
 		if(!stavkaPorudzbineRepository.existsById(id))
@@ -58,6 +60,7 @@ public class StavkaPorudzbineRestController {
 	}
 
 	//insert
+	@CrossOrigin
 	@PostMapping(value = "stavkaPorudzbine")
 	public ResponseEntity<Void> insertStavkaPorudzbine(@RequestBody StavkaPorudzbine stavkaPorudzbine){
 		if(stavkaPorudzbineRepository.existsById(stavkaPorudzbine.getId()))
@@ -68,6 +71,7 @@ public class StavkaPorudzbineRestController {
 	}
 
 	//update
+	@CrossOrigin
 	@PutMapping(value = "stavkaPorudzbine")
 	public ResponseEntity<Void> updateStavkaPorudzbine(@RequestBody StavkaPorudzbine stavkaPorudzbine){
 		if(!stavkaPorudzbineRepository.existsById(stavkaPorudzbine.getId()))
