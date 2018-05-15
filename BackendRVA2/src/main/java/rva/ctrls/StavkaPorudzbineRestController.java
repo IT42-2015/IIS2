@@ -51,7 +51,7 @@ public class StavkaPorudzbineRestController {
 	}
 
 	@CrossOrigin
-	@DeleteMapping (value = "stavkaPorudzbineId/{id}")
+	@DeleteMapping (value = "stavkaPorudzbine/{id}")
 	public ResponseEntity<StavkaPorudzbine> deleteStavkaPorudzbine(@PathVariable("id") Integer id){
 		if(!stavkaPorudzbineRepository.existsById(id))
 			return new ResponseEntity<StavkaPorudzbine>(HttpStatus.NO_CONTENT);

@@ -40,7 +40,7 @@ public class DobavljacRestController {
 	}
 	
 	@CrossOrigin
-	@DeleteMapping("dobavljacId/{id}")
+	@DeleteMapping("dobavljac/{id}")
 	public ResponseEntity<Dobavljac> deleteDobavljac(@PathVariable ("id") Integer id){
 		if(!dobavljacRepository.existsById(id))
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);

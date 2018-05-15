@@ -47,7 +47,7 @@ public class ArtiklRestController {
 	}
 	
 	@CrossOrigin
-	@DeleteMapping("artiklId/{id}")
+	@DeleteMapping("artikl/{id}")
 	@ApiOperation(value = "BriÅ¡e artikl iz baze podataka Ä�iji je id vrednost prosleÄ‘ena kao path varijabla")
 	public ResponseEntity<Artikl> deleteArtikl(@PathVariable("id") Integer id){
 		if(artiklRepository.existsById(id)){

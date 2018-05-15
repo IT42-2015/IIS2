@@ -43,7 +43,7 @@ public class PorudzbinaRestController {
 	
 	@CrossOrigin
 	@Transactional
-	@DeleteMapping("porudzbinaId/{id}")
+	@DeleteMapping("porudzbina/{id}")
 	public ResponseEntity<Porudzbina> deletePorudzbina(@PathVariable ("id") Integer id){
 		if(!porudzbinaRepository.existsById(id))
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
