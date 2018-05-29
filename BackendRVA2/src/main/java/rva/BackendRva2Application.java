@@ -5,17 +5,25 @@ import java.util.Arrays;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class BackendRva2Application {
+public class BackendRva2Application extends SpringBootServletInitializer {
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(BackendRva2Application.class);
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackendRva2Application.class, args);
 	}
+
 	@Bean
-	public CommandLineRunner commandLineRunner(ApplicationContext ctx){
+	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
 			System.out.println("Beans provided by Spring Boot:");
 			String[] beanNames = ctx.getBeanDefinitionNames();

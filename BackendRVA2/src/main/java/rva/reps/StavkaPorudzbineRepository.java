@@ -12,6 +12,6 @@ import rva.jpa.StavkaPorudzbine;
 public interface StavkaPorudzbineRepository extends JpaRepository<StavkaPorudzbine, Integer> {
 	Collection<StavkaPorudzbine> findByPorudzbina(Porudzbina p);
 	Collection<StavkaPorudzbine> findByCenaLessThanOrderById(BigDecimal cena);
-	@Query(value = "select coalesce(max(redni_broj)+1, 1) from stavka_porudzbine where porudzbina = ?1")
+	@Query(value = "select coalesce(max(redni_broj)+1, 1) from stavka_porudzbine where porudzbina = ?1", nativeQuery = true)
 	Integer nextRBr(Integer porudzbinaId);
 }
